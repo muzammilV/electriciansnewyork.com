@@ -1,0 +1,143 @@
+/* =============================================
+   electriciansnewyork.com — custom.css v2
+   ============================================= */
+
+:root {
+  --blue-primary: #1a3a6b;
+  --blue-dark:    #0f2347;
+  --orange:       #f97316;
+  --orange-dark:  #ea580c;
+  --yellow:       #fbbf24;
+}
+
+/* Hero gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, #0f2347 0%, #1a3a6b 50%, #1e4d8c 100%);
+}
+
+/* Trust badge */
+.trust-badge {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Pulse animation */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0   rgba(249,115,22,0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(249,115,22,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(249,115,22,0);    }
+}
+.pulse-btn { animation: pulse-ring 2s infinite; }
+
+/* Service card hover */
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26,58,107,0.13);
+}
+
+/* Testimonial card */
+.testimonial-card { border-left: 4px solid var(--orange); }
+
+/* Stars */
+.stars { color: #fbbf24; letter-spacing: 2px; }
+
+/* Fade-in on scroll */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════════════════════
+   MOBILE NAV MENU
+   IMPORTANT: Do NOT put class="hidden" on #mobile-menu.
+   This CSS file controls visibility exclusively.
+   JS adds/removes class="open" to toggle.
+   ══════════════════════════════════════════════ */
+#mobile-menu {
+  display: none;
+}
+#mobile-menu.open {
+  display: block;
+  animation: slideDown 0.18s ease;
+}
+@media (min-width: 768px) {
+  #mobile-menu,
+  #mobile-menu.open {
+    display: none !important;
+  }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════
+   FAQ ACCORDION
+   Do NOT use class="hidden" on .faq-answer elements.
+   JS adds/removes class="faq-open" to show/hide.
+   ══════════════════════════════════════════════ */
+.faq-answer {
+  display: none;
+}
+.faq-answer.faq-open {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ══════════════════════════════════════════════
+   FLOATING CALL BUTTON
+   JS controls opacity/transform on scroll.
+   Hidden on desktop always.
+   ══════════════════════════════════════════════ */
+#float-call {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+#float-call.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+@media (min-width: 768px) {
+  #float-call { display: none !important; }
+}
+
+/* iOS form inputs */
+input, select, textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+}
+
+img { max-width: 100%; height: auto; }
+
+.cta-gradient {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+/* Desktop dropdown (Boroughs menu) */
+.nav-dropdown { display: none; }
+.nav-dropdown-parent:hover .nav-dropdown,
+.nav-dropdown-parent:focus-within .nav-dropdown {
+  display: block;
+}
+
+/* Success message — hidden by default, JS sets display:block */
+.success-msg {
+  display: none;
+}
