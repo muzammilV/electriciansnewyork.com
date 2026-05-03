@@ -1,0 +1,76 @@
+/* =============================================
+   electriciansnewyork.com — custom.css v3
+   ============================================= */
+
+:root {
+  --blue-primary: #1a3a6b;
+  --orange: #f97316;
+  --yellow: #fbbf24;
+}
+
+/* Hero gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, #0f2347 0%, #1a3a6b 50%, #1e4d8c 100%);
+}
+
+/* Trust badge glassmorphism */
+.trust-badge {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Pulse button */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0    rgba(249,115,22,0.55); }
+  70%  { box-shadow: 0 0 0 12px rgba(249,115,22,0); }
+  100% { box-shadow: 0 0 0 0    rgba(249,115,22,0); }
+}
+.pulse-btn { animation: pulse-ring 2s infinite; }
+
+/* Service card hover lift */
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26,58,107,0.13);
+}
+
+/* Testimonial left border */
+.testimonial-card { border-left: 4px solid var(--orange); }
+
+/* Stars */
+.stars { color: #fbbf24; letter-spacing: 2px; }
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating call button base */
+#float-call {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* iOS input fix */
+input, select, textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+}
+
+/* Responsive images */
+img { max-width: 100%; height: auto; }
+
+/* Desktop dropdown hover */
+.group:hover .group-hover\:block { display: block; }
